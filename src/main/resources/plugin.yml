@@ -2,4 +2,5 @@ name: BawkBawksWrath
 version: '${project.version}'
 main: me.invis.bawkbawkswrath.BawkBawksWrath
 commands:
+  whomadethis:
   setupnewgamespot:

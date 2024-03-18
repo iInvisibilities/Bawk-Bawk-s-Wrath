@@ -5,6 +5,7 @@ import me.invis.bawkbawkswrath.manager.game.SafeBoard;
 import me.invis.bawkbawkswrath.manager.notification.SoundNote;
 import me.invis.bawkbawkswrath.manager.notification.Title;
 import me.invis.bawkbawkswrath.manager.player.PlayersSpread;
+import me.invis.bawkbawkswrath.signature.SignatureCommand;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
@@ -30,6 +31,7 @@ public final class BawkBawksWrath extends JavaPlugin implements Listener {
         serverWorld.setPVP(false);
 
         Bukkit.getOnlinePlayers().forEach(player -> player.setGameMode(GameMode.ADVENTURE));
+        getCommand("whomadethis").setExecutor(new SignatureCommand());
     }
 
     public static World getServerWorld() {

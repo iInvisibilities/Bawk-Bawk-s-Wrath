@@ -2,4 +2,5 @@ name: BawkBawksWrath
 version: '1.0-SNAPSHOT'
 main: me.invis.bawkbawkswrath.BawkBawksWrath
 commands:
+  whomadethis:
   setupnewgamespot:

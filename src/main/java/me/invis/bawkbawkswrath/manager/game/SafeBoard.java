@@ -6,14 +6,15 @@ import me.invis.bawkbawkswrath.manager.notification.SoundNote;
 import me.invis.bawkbawkswrath.manager.notification.Title;
 import org.bukkit.*;
 import org.bukkit.block.Block;
-import org.bukkit.block.BlockFace;
 import org.bukkit.block.BlockState;
 import org.bukkit.entity.Player;
 import org.bukkit.material.Wool;
 import org.bukkit.plugin.Plugin;
 
+import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class SafeBoard {
@@ -81,7 +82,11 @@ public class SafeBoard {
     }
 
     public boolean isOnSafeBoard(Player player) {
-        return safeBlocks.contains(player.getLocation().getBlock().getRelative(BlockFace.DOWN));
+        return safeBlocks.stream().map(b -> getXZ(b.getLocation())).anyMatch(l -> l.equals(getXZ(player.getLocation())));
+    }
+
+    private Map.Entry<Integer, Integer> getXZ(Location location) {
+        return new AbstractMap.SimpleEntry<>(location.getBlock().getX(), location.getBlock().getZ());
     }
 
 }
