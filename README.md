@@ -1,5 +1,5 @@
 This is a scrappy replica of the original gamemode of the Mineplex network, Bawk Bawk's Wrath!
-## The game (copied from [their game's wiki page](https://mineplex.fandom.com/wiki/Bawk_Bawk's_Wrath_(Nano_Game))
+## The game (copied from [their game's wiki page](https://mineplex.fandom.com/wiki/Bawk_Bawk's_Wrath_(Nano_Game)))
 Each round, a platform appears in the map. The aim is to stand on the platform before the countdown runs out and a wall appears around it. Anyone who did not make it in time will get killed by lightning. After the 2nd round, pvp is enabled, meaning you can punch others out just before the timer runs out. As time goes by, the platform becomes smaller and smaller.
 
 > [!NOTE]
