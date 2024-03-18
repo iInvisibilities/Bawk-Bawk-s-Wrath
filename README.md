@@ -6,6 +6,6 @@ Each round, a platform appears in the map. The aim is to stand on the platform b
 > Each server is able to host 1 game!
 
 > [!WARNING]
-> The code of this isn't perfect, as mentioned in the beginning it's a "scrappy replica", but still works.
+> The code of this isn't perfect, as mentioned in the beginning it's a "scrappy replica", a matter of fact it took me 3 hours to make with the testing & everything, but still works.
 
 ![youtube-video-gif](https://github.com/iInvisibilities/Bawk-Bawk-s-Wrath/assets/78047131/70e699ab-4f60-4fc0-a946-e8df9e6884ba)
