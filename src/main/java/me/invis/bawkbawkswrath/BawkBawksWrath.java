@@ -62,6 +62,7 @@ public final class BawkBawksWrath extends JavaPlugin implements Listener {
     private void onPlayerJoin(PlayerJoinEvent event) {
         int online = Bukkit.getOnlinePlayers().size();
         event.setJoinMessage(ChatColor.GREEN + event.getPlayer().getDisplayName() + " has joined! (" + online + "/" + getConfig().getInt("min-players-to-start-game") + ")");
+        event.getPlayer().setGameMode(GameMode.ADVENTURE);
         if(online > getConfig().getInt("min-players-to-start-game") || hasStarted) {
             event.setJoinMessage(event.getPlayer().getDisplayName() + ChatColor.GRAY + " has started spectating the game!");
             event.getPlayer().setGameMode(GameMode.SPECTATOR);

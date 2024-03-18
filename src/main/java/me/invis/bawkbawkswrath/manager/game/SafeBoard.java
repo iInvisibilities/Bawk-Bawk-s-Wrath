@@ -1,6 +1,7 @@
 package me.invis.bawkbawkswrath.manager.game;
 
 import me.invis.bawkbawkswrath.BawkBawksWrath;
+import me.invis.bawkbawkswrath.event.GameEndEvent;
 import me.invis.bawkbawkswrath.manager.cooldown.Cooldown;
 import me.invis.bawkbawkswrath.manager.notification.SoundNote;
 import me.invis.bawkbawkswrath.manager.notification.Title;
@@ -10,6 +11,7 @@ import org.bukkit.block.BlockState;
 import org.bukkit.entity.Player;
 import org.bukkit.material.Wool;
 import org.bukkit.plugin.Plugin;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.AbstractMap;
 import java.util.ArrayList;
@@ -66,8 +68,18 @@ public class SafeBoard {
 
                     List<? extends Player> winner = Bukkit.getOnlinePlayers().stream().filter(player -> player.getGameMode() != GameMode.SPECTATOR).collect(Collectors.toList());
                     if(winner.size() <= 1) {
-                        if(winner.size() == 1) winner.get(0).sendTitle(ChatColor.GREEN + "You win!", ChatColor.GRAY + "Congratulations!");
+                        Player w = null;
+                        if(winner.size() == 1) {
+                            w = winner.get(0);
+                            w.sendTitle(ChatColor.GREEN + "You win!", ChatColor.GRAY + "Congratulations!");
+                        }
+                        Bukkit.getPluginManager().callEvent(
+                                new GameEndEvent(w, currentRound)
+                        );
+
                         isGameOn = false;
+                        Bukkit.broadcastMessage(ChatColor.RED + "SERVER IS GOING TO RESTART IN 15 SECONDS...");
+                        serverRestart(plugin);
                     }
 
                     safeBlocks.forEach(block -> {
@@ -79,6 +91,17 @@ public class SafeBoard {
                     if (isGameOn) new SafeBoard(currentRound+1, plugin);
                 }
         );
+    }
+
+    private void serverRestart(Plugin plugin) {
+        new BukkitRunnable() {
+
+            @Override
+            public void run() {
+                plugin.getServer().spigot().restart();
+            }
+
+        }.runTaskLater(plugin, 300);
     }
 
     public boolean isOnSafeBoard(Player player) {
