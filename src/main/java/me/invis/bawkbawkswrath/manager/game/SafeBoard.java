@@ -19,6 +19,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import static me.invis.bawkbawkswrath.BawkBawksWrath.PVPRound;
+
 public class SafeBoard {
 
     private final static int radius = BawkBawksWrath.getInstance().getConfig().getInt("radius", 15);
@@ -28,7 +30,7 @@ public class SafeBoard {
     public SafeBoard(int currentRound, Plugin plugin) {
         Bukkit.broadcastMessage(ChatColor.GREEN + "RUN TO THE SAFE BOARD!");
         new SoundNote(1);
-        if(currentRound == 3) {
+        if(currentRound == PVPRound) {
             new SoundNote(.1F);
             Bukkit.broadcastMessage(ChatColor.RED + "PVP IS ENABLED!");
             BawkBawksWrath.getServerWorld().setPVP(true);

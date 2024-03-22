@@ -1,3 +1,4 @@
 world: "world"
 radius: 15
 min-players-to-start-game: 16
+pvp-round-start: 2

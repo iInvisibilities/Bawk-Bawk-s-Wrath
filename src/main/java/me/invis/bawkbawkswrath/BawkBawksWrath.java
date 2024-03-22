@@ -22,6 +22,9 @@ public final class BawkBawksWrath extends JavaPlugin implements Listener {
 
     private boolean hasStarted = false;
 
+    //made it the "Arabic" way (sorry if someone getting hurt from this)
+    public static int PVPRound;
+
     @Override
     public void onEnable() {
         saveDefaultConfig();
@@ -29,6 +32,7 @@ public final class BawkBawksWrath extends JavaPlugin implements Listener {
         Bukkit.getPluginManager().registerEvents(this, this);
         serverWorld = Bukkit.getWorld(getConfig().getString("world"));
         serverWorld.setPVP(false);
+        PVPRound = getConfig().getInt("pvp-round-start");
 
         Bukkit.getOnlinePlayers().forEach(player -> player.setGameMode(GameMode.ADVENTURE));
         getCommand("whomadethis").setExecutor(new SignatureCommand());
