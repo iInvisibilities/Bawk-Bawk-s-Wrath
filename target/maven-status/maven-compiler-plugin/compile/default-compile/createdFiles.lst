@@ -4,8 +4,8 @@ me\invis\bawkbawkswrath\manager\player\PlayersSpread.class
 me\invis\bawkbawkswrath\manager\cooldown\Cooldown.class
 me\invis\bawkbawkswrath\manager\game\SafeBoard$1.class
 me\invis\bawkbawkswrath\manager\notification\SoundNote.class
-me\invis\bawkbawkswrath\manager\game\SafeBoard.class
 me\invis\bawkbawkswrath\manager\cooldown\Cooldown$1.class
+me\invis\bawkbawkswrath\manager\game\SafeBoard.class
 me\invis\bawkbawkswrath\BawkBawksWrath.class
-me\invis\bawkbawkswrath\signature\SignatureCommand.class
 me\invis\bawkbawkswrath\event\GameEndEvent.class
+me\invis\bawkbawkswrath\signature\SignatureCommand.class
